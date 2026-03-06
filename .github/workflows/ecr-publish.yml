@@ -7,7 +7,8 @@ on:
 
 env:
   ECR_PUBLIC_REGISTRY: public.ecr.aws/jindan-containers
-  IMAGE_NAME: projects/actual-mcp
+  REPO_NAME: projects
+  IMAGE_TAG: actual-mcp
 
 jobs:
   build-and-push:
@@ -31,5 +32,5 @@ jobs:
 
       - name: Build and push
         run: |
-          docker build -t $ECR_PUBLIC_REGISTRY/$IMAGE_NAME:latest .
-          docker push $ECR_PUBLIC_REGISTRY/$IMAGE_NAME:latest
+          docker build -t $ECR_PUBLIC_REGISTRY/$REPO_NAME:$IMAGE_TAG .
+          docker push $ECR_PUBLIC_REGISTRY/$REPO_NAME:$IMAGE_TAG
