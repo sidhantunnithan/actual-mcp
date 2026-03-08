@@ -18,8 +18,12 @@
     - `types.ts`: Tool-specific type definitions.
   - **Core Utilities** (`src/core/`): Shared functionality for data fetching, input handling, aggregation, and mapping.
 - **Use clear, consistent imports** (prefer relative imports within packages).
-- **Use clear, consistent imports** (prefer relative imports within packages).
 - **Use process.env** for environment variables.
+
+### ⚠️ Actual Budget API Gotchas
+
+- **Transfers require `runTransfers: true`**: `api.addTransactions()` has a `runTransfers` option that defaults to `false`. Without it, transactions with transfer payees only create an entry in the source account — the counterpart in the destination account is never created. Always pass `{ runTransfers: true }` when the transaction may be a transfer (see `src/actual-api.ts`).
+- **Transfer payees**: Each account has an auto-created transfer payee with a `transfer_acct` field pointing to the account ID. To create a transfer, look up the payee where `transfer_acct` matches the destination account and set it as the transaction's `payee`.
 
 ### 🧪 Testing & Reliability
 
@@ -50,6 +54,8 @@ This script:
 - `downloadBudget()` in `@actual-app/api` matches on `groupId`, **not** `cloudFileId`. The `ACTUAL_BUDGET_SYNC_ID` env var must be a `groupId`.
 - The `@actual-app/api` library writes `[Breadcrumb]` logs to stdout. The orchestrator filters these when extracting the sync ID.
 - `ACTUAL_DATA_DIR` env var must be set before calling `upload-budget` internally — the API's `exportDatabase()` uses it for temp backup paths.
+- **Write tools require `--enable-write`**: The `docker-compose.test.yml` command includes `--enable-write`. Without this flag, write tools (create-transaction, update-transaction, etc.) are not registered and return "Unknown tool" errors.
+- **Teardown behavior**: `python3 scripts/test-e2e.py` tears down all containers on exit (in its `finally` block). For manual UI verification after setup, start services separately using docker compose commands with the same env vars (`ACTUAL_HOST_PORT`, `MCP_HOST_PORT`, `BUDGET_SYNC_ID`).
 
 #### Unit Tests
 
