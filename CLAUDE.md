@@ -23,6 +23,36 @@
 
 ### 🧪 Testing & Reliability
 
+#### E2E Testing (MCP Server against live Actual Budget)
+
+**Any time you need to test the MCP server against real data, use the E2E test setup first.** Do not try to manually spin up Actual Budget or mock the server — use the script.
+
+Run: `python3 scripts/test-e2e.py`
+
+This script:
+1. Wipes `./data/` and temp dirs for a clean state.
+2. Starts an `actualbudget/actual-server` Docker container (data in `./data/`).
+3. If the default port (5006) is taken, prompts you to stop the existing container or falls back to 5007.
+4. Seeds the server: bootstraps the password, creates a budget if none exists, adds a **"TESTING"** account.
+5. Builds and starts the MCP server Docker container connected to that Actual Budget instance.
+6. Connects to the MCP server via Streamable HTTP, calls `get-accounts`, and asserts the "TESTING" account is present.
+7. Tears everything down on exit.
+
+**Key files:**
+- `docker-compose.test.yml` — Compose file for both services (ports are configurable via `ACTUAL_HOST_PORT`, `MCP_HOST_PORT`, `BUDGET_SYNC_ID` env vars).
+- `scripts/seed-test-data.ts` — Bootstraps the Actual Budget server, creates a budget + "TESTING" account, outputs the budget sync ID (groupId) to stdout.
+- `scripts/test-mcp-connection.ts` — MCP SDK client that calls `get-accounts` and checks for "TESTING".
+- `scripts/test-e2e.py` — Orchestrator that runs all of the above in order.
+
+**When to use:** After making changes to tools, the server, or the API layer, run `python3 scripts/test-e2e.py` to verify the MCP server can talk to a real Actual Budget instance end-to-end.
+
+**Important notes:**
+- `downloadBudget()` in `@actual-app/api` matches on `groupId`, **not** `cloudFileId`. The `ACTUAL_BUDGET_SYNC_ID` env var must be a `groupId`.
+- The `@actual-app/api` library writes `[Breadcrumb]` logs to stdout. The orchestrator filters these when extracting the sync ID.
+- `ACTUAL_DATA_DIR` env var must be set before calling `upload-budget` internally — the API's `exportDatabase()` uses it for temp backup paths.
+
+#### Unit Tests
+
 - **Always create Vitest unit tests for new features** (functions, classes, modules, etc).
 - **Use TypeScript in tests** and maintain type safety throughout test suites.
 - **After updating any logic**, check whether existing unit tests need to be updated. If so, do it.

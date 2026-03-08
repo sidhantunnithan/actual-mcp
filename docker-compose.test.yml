@@ -1,0 +1,25 @@
+services:
+  actual-server:
+    image: actualbudget/actual-server:latest
+    ports:
+      - "${ACTUAL_HOST_PORT:-5006}:5006"
+    volumes:
+      - ./data:/data
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:5006"]
+      interval: 3s
+      timeout: 5s
+      retries: 15
+      start_period: 5s
+
+  actual-mcp:
+    build: .
+    ports:
+      - "${MCP_HOST_PORT:-3001}:3000"
+    environment:
+      - ACTUAL_SERVER_URL=http://actual-server:5006
+      - ACTUAL_PASSWORD=test-password
+      - ACTUAL_BUDGET_SYNC_ID=${BUDGET_SYNC_ID}
+    command: ["node", "build/index.js", "--sse"]
+    depends_on:
+      - actual-server
