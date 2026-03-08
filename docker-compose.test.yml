@@ -20,6 +20,6 @@ services:
       - ACTUAL_SERVER_URL=http://actual-server:5006
       - ACTUAL_PASSWORD=test-password
       - ACTUAL_BUDGET_SYNC_ID=${BUDGET_SYNC_ID}
-    command: ["node", "build/index.js", "--sse"]
+    command: ["node", "build/index.js", "--sse", "--enable-write"]
     depends_on:
       - actual-server
