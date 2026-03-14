@@ -1,5 +1,56 @@
 # Changelog
 
+## [1.12.0](https://github.com/sidhantunnithan/actual-mcp/compare/v1.11.0...v1.12.0) (2026-03-14)
+
+
+### Features
+
+* add create-transaction tool ([#72](https://github.com/sidhantunnithan/actual-mcp/issues/72)) ([f8cd573](https://github.com/sidhantunnithan/actual-mcp/commit/f8cd573be318536d9d3ea9730942d5fb5fb89757))
+* add E2E test setup for MCP server against live Actual Budget ([a67cc29](https://github.com/sidhantunnithan/actual-mcp/commit/a67cc29d0057f8935295b3daf19372c6dbb7f50e))
+* add import transactions tool ([#117](https://github.com/sidhantunnithan/actual-mcp/issues/117)) ([ffd7a89](https://github.com/sidhantunnithan/actual-mcp/commit/ffd7a89ddedd9afaf610b171d2a252858c85d62a))
+* add run-bank-sync tool ([#93](https://github.com/sidhantunnithan/actual-mcp/issues/93)) ([61b67d7](https://github.com/sidhantunnithan/actual-mcp/commit/61b67d72e3789999cfe4aec78181deffffaabb99))
+* Add streamable HTTP transport for Codex (Trigger Release) ([#54](https://github.com/sidhantunnithan/actual-mcp/issues/54)) ([ec23551](https://github.com/sidhantunnithan/actual-mcp/commit/ec235517ad3a1d205fc31e02bbcd0800cb9b92ef))
+* Add Vitest unit testing framework for src/core module ([#14](https://github.com/sidhantunnithan/actual-mcp/issues/14)) ([80d3d80](https://github.com/sidhantunnithan/actual-mcp/commit/80d3d8028fec938ed06f03b60b234be19b3881d1))
+* Connect to actual budget server that has different encryption key ([#33](https://github.com/sidhantunnithan/actual-mcp/issues/33)) ([f828ad4](https://github.com/sidhantunnithan/actual-mcp/commit/f828ad4f56e73416ec82f5c55efd98bea315c196)), closes [#28](https://github.com/sidhantunnithan/actual-mcp/issues/28)
+* create PR checks ([#16](https://github.com/sidhantunnithan/actual-mcp/issues/16)) ([b60ea97](https://github.com/sidhantunnithan/actual-mcp/commit/b60ea973ddffc9b93a32679beb61d616decb0455))
+* Enhance transaction handling with enriched data and improved input parsing ([#39](https://github.com/sidhantunnithan/actual-mcp/issues/39)) ([74f1270](https://github.com/sidhantunnithan/actual-mcp/commit/74f12709ee9efef7840dec15bd1c1424cb09f5f2))
+* ESLint Introduction. Typings and fixes ([#15](https://github.com/sidhantunnithan/actual-mcp/issues/15)) ([8f33ad8](https://github.com/sidhantunnithan/actual-mcp/commit/8f33ad88c91ab3636fa95a53337cc8cc952a5773))
+* Fix monthly summary with transfers calculations ([#41](https://github.com/sidhantunnithan/actual-mcp/issues/41)) ([af59c41](https://github.com/sidhantunnithan/actual-mcp/commit/af59c41d43ea3e85b10e475becc3f62273e8ebd0))
+* fixes applied for version 26.2 ([#105](https://github.com/sidhantunnithan/actual-mcp/issues/105)) ([de2c184](https://github.com/sidhantunnithan/actual-mcp/commit/de2c1841daacaf85c26dad16cdbd424fba2413cb))
+* get accounts tool ([#6](https://github.com/sidhantunnithan/actual-mcp/issues/6)) ([9008dbe](https://github.com/sidhantunnithan/actual-mcp/commit/9008dbe8a94e83b822f28a1c0190f281882b7fcc))
+* github pipelines ([#9](https://github.com/sidhantunnithan/actual-mcp/issues/9)) ([e9ae9ff](https://github.com/sidhantunnithan/actual-mcp/commit/e9ae9ff2a53c19ba9065804c64fb257bfbc3a8f7))
+* multibuild for arm and amd ([#126](https://github.com/sidhantunnithan/actual-mcp/issues/126)) ([63b0941](https://github.com/sidhantunnithan/actual-mcp/commit/63b0941923b73ddd52581badd8adbdfbd46d3da7))
+* New tools for categories, payees, and rules ([#18](https://github.com/sidhantunnithan/actual-mcp/issues/18)) ([fa9bbd2](https://github.com/sidhantunnithan/actual-mcp/commit/fa9bbd2752e2a04ef5cc82e752100f02b0af63f3))
+* Refactoring of tools & types ([#5](https://github.com/sidhantunnithan/actual-mcp/issues/5)) ([af9d185](https://github.com/sidhantunnithan/actual-mcp/commit/af9d1850ca76315185f36331f758597f510a4528))
+* Return id in get-transactions ([#34](https://github.com/sidhantunnithan/actual-mcp/issues/34)) ([e15bb33](https://github.com/sidhantunnithan/actual-mcp/commit/e15bb33866106954a904f9ce1ebccf76983c95ea)), closes [#32](https://github.com/sidhantunnithan/actual-mcp/issues/32)
+* Stabilize API Init/Shutdown and Fix Tool-Call Rejection & Stdio Corruption ([#96](https://github.com/sidhantunnithan/actual-mcp/issues/96)) ([2e16cfa](https://github.com/sidhantunnithan/actual-mcp/commit/2e16cfa956b7999e7dc49fac0702eca3343fa1cc))
+* Update Actual to 25.10.0 ([#35](https://github.com/sidhantunnithan/actual-mcp/issues/35)) ([1bd89ea](https://github.com/sidhantunnithan/actual-mcp/commit/1bd89ea4dd3fb72e8641f8eff018f41b3d8db6a7))
+* update actual to 26.3 ([#124](https://github.com/sidhantunnithan/actual-mcp/issues/124)) ([5003cdb](https://github.com/sidhantunnithan/actual-mcp/commit/5003cdb55d464adb0dcfddbdd4a9178604c2fc74))
+* update mcp to latest and zod to 4 ([#127](https://github.com/sidhantunnithan/actual-mcp/issues/127)) ([1472ef2](https://github.com/sidhantunnithan/actual-mcp/commit/1472ef2499599833294d00cd3718ac222a7f5eaa))
+
+
+### Bug Fixes
+
+* correct repo url in README.md ([#42](https://github.com/sidhantunnithan/actual-mcp/issues/42)) ([41b4070](https://github.com/sidhantunnithan/actual-mcp/commit/41b4070e4c44394a15b15947a3b799de0d7e8ef4))
+* create counterpart transaction for transfers by enabling runTransfers ([df2b04a](https://github.com/sidhantunnithan/actual-mcp/commit/df2b04a2efa979a4d976dbcd52cc110f209e4a01))
+* create per-connection MCP server instances to prevent concurrent connection crashes ([d60c3e7](https://github.com/sidhantunnithan/actual-mcp/commit/d60c3e79f348207208de5ea1eed040587fa1627c))
+* deployment ([1c57a9d](https://github.com/sidhantunnithan/actual-mcp/commit/1c57a9d980bbf5724121763372a30a202e961273))
+* deployment steps ([66a0311](https://github.com/sidhantunnithan/actual-mcp/commit/66a0311dccfa8f1cdb47052c74e21f070c0e7863))
+* **deps:** update dependency dotenv to v17 ([#87](https://github.com/sidhantunnithan/actual-mcp/issues/87)) ([8be16d9](https://github.com/sidhantunnithan/actual-mcp/commit/8be16d9bf4e2308e4073a150bdab03f5c6a418ba))
+* **deps:** update dependency dotenv to v17.3.1 ([#121](https://github.com/sidhantunnithan/actual-mcp/issues/121)) ([5cc4f57](https://github.com/sidhantunnithan/actual-mcp/commit/5cc4f5743c7005ef1944accfeb371c69fc00df9d))
+* **deps:** update dependency express to v5.2.1 ([#78](https://github.com/sidhantunnithan/actual-mcp/issues/78)) ([c1e0093](https://github.com/sidhantunnithan/actual-mcp/commit/c1e0093ced6814488e3d4b732127cb757d7d550c))
+* **deps:** update dependency vite-tsconfig-paths to v6 ([#80](https://github.com/sidhantunnithan/actual-mcp/issues/80)) ([cc4ce34](https://github.com/sidhantunnithan/actual-mcp/commit/cc4ce340644c18ebde516d9fe83e4c8347d7630a))
+* **deps:** update dependency zod-to-json-schema to v3.25.0 ([#69](https://github.com/sidhantunnithan/actual-mcp/issues/69)) ([ecff8ee](https://github.com/sidhantunnithan/actual-mcp/commit/ecff8eec0d9ce79cb9a769bc559603d3e972b57d))
+* **deps:** update dependency zod-to-json-schema to v3.25.1 ([#90](https://github.com/sidhantunnithan/actual-mcp/issues/90)) ([676a379](https://github.com/sidhantunnithan/actual-mcp/commit/676a379e93a0da23a9b9a9f752bfba34a4f1f2ea))
+* **deps:** update github artifact actions ([#83](https://github.com/sidhantunnithan/actual-mcp/issues/83)) ([46fae56](https://github.com/sidhantunnithan/actual-mcp/commit/46fae56516b90ca1cdb74f8f2c353a60c44b2270))
+* **deps:** update vitest monorepo to v4 ([#84](https://github.com/sidhantunnithan/actual-mcp/issues/84)) ([426e3e1](https://github.com/sidhantunnithan/actual-mcp/commit/426e3e147f883f4cb31e5c264e08e393022cc481))
+* docker publish to proper username ([#29](https://github.com/sidhantunnithan/actual-mcp/issues/29)) ([fa15085](https://github.com/sidhantunnithan/actual-mcp/commit/fa150857d528c730b5f6ad20a33ede230e886635))
+* docker run with pre-compiled binaries ([#4](https://github.com/sidhantunnithan/actual-mcp/issues/4)) ([2171a0f](https://github.com/sidhantunnithan/actual-mcp/commit/2171a0f5ccb2cd1ecc29affb86fb9ae6e3710200))
+* push to projects:actual-mcp tag instead of non-existent repo ([4d5ec47](https://github.com/sidhantunnithan/actual-mcp/commit/4d5ec478054ecccc7bb1d24095965b81b00a8827))
+* update actual version to latest ([f4b18e1](https://github.com/sidhantunnithan/actual-mcp/commit/f4b18e13329bbf78ef498e1e200ea51dae3f9d88))
+* update response type of accounts tool. test return is correct ([3dbe79a](https://github.com/sidhantunnithan/actual-mcp/commit/3dbe79a665a26acea6133812f36bf8a41ac60eae))
+* use valid JSON Schema 2020-12 for rule value types ([#26](https://github.com/sidhantunnithan/actual-mcp/issues/26)) ([6ee4c7e](https://github.com/sidhantunnithan/actual-mcp/commit/6ee4c7e4c72e3b341a0acc261ffe231781acdbdf))
+
 ## [1.11.0](https://github.com/s-stefanov/actual-mcp/compare/v1.10.0...v1.11.0) (2026-03-03)
 
 
