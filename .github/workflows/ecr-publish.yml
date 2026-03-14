@@ -7,8 +7,8 @@ on:
 
 env:
   ECR_PUBLIC_REGISTRY: public.ecr.aws/jindan-containers
-  REPO_NAME: projects
-  IMAGE_TAG: actual-mcp
+  REPO_NAME: actual-mcp
+  IMAGE_TAG: latest
 
 jobs:
   build-and-push:
